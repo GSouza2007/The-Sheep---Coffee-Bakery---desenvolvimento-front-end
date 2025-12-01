@@ -1,0 +1,335 @@
+/* Global styles for The Sheep - simple, elegant cafe theme */
+:root {
+    --bg: #FAF8F4;
+    --accent: #CDAA7D;
+    /* pastry color */
+    --dark: #2B2B2B;
+    --muted: #6B6B6B;
+    --card-bg: #FFFFFF;
+    --radius: 12px;
+    --maxwidth: 1100px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background: var(--bg);
+    color: var(--dark);
+}
+
+/* HEADER / NAV */
+header {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.85));
+    backdrop-filter: blur(4px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid rgba(43, 43, 43, 0.05);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: var(--maxwidth);
+    margin: 0 15%;
+    padding: 18px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.logo svg {
+    width: 48px;
+    height: 48px;
+}
+
+.site-title {
+    font-weight: 700;
+    letter-spacing: 0.6px;
+}
+
+.site-tag {
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 18px;
+}
+
+nav a {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+nav a:hover {
+    background: rgba(205, 170, 125, 0.12);
+}
+
+/* HERO (home) */
+.hero {
+    max-width: var(--maxwidth);
+    margin: 34px 15% 18px;
+    padding: 28px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, rgba(205, 170, 125, 0.06), rgba(205, 170, 125, 0.02));
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.hero img {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* MAIN CONTENT */
+.container {
+    max-width: var(--maxwidth);
+    margin: 0 15%;
+    /* 15% de margem em cada lado */
+    padding: 18px 0;
+}
+
+/* GRID & CARDS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(43, 43, 43, 0.06);
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+/* FOOTER */
+.footer {
+    max-width: var(--maxwidth);
+    margin: 34px 15%;
+    padding: 18px 0;
+    color: var(--muted);
+    border-top: 1px solid rgba(43, 43, 43, 0.04);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* OTHERS */
+.logo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.04);
+}
+
+.small {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* Responsive tweaks */
+@media (max-width:800px) {
+    .header-inner {
+        margin: 0 6%;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 18px 6%;
+    }
+
+    .container {
+        margin: 0 6%;
+    }
+
+    .footer {
+        margin: 18px 6%;
+    }
+}
+
+/* Acessibilidade: foco */
+a:focus {
+    outline: 3px solid rgba(205, 170, 125, 0.25);
+    outline-offset: 2px;
+}
+
+.contact-grid .card {
+  height: 100%;
+}
+
+/* Estilo de cardápio: item à esquerda, preço à direita */
+.menu-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* Nome + descrição ocupam o espaço da esquerda */
+.menu-list li > div:first-child {
+  flex: 1;
+}
+
+/* Preço fixo à direita */
+.menu-list li > div.small {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* ----- Página de contato ----- */
+
+.contact-grid .contact-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* Versão "fantasma" do botão: borda e texto, fundo claro */
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.08);
+  color: var(--dark);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Garante que o link dentro do botão não fique azul/sublinhado */
+.btn-ghost,
+.btn-ghost:link,
+.btn-ghost:visited {
+  text-decoration: none;
+}
+
+/* Wrapper bonitinho pro mapa */
+.map-wrapper {
+  margin-top: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+/* Bloco extra de info abaixo (horário) */
+.contact-extra {
+  margin-top: 24px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+/* ----- Página de contato ----- */
+
+.contact-grid .contact-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* Botões de contato com ícone + texto lado a lado */
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.contact-btn img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* Versão "fantasma" do botão: borda e texto, fundo claro */
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.08);
+  color: var(--dark);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Garante que o link dentro do botão não fique azul/sublinhado */
+.btn-ghost,
+.btn-ghost:link,
+.btn-ghost:visited {
+  text-decoration: none;
+}
+
+/* Wrapper bonitinho pro mapa */
+.map-wrapper {
+  margin-top: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+/* Bloco extra de info abaixo (horário) */
+.contact-extra {
+  margin-top: 24px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
